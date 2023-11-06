@@ -11,6 +11,11 @@
 
 ## Step 1: 
 
+In [private_assistant_stack.py](/private-assistant/private_assistant/private_assistant_stack.py) edit this line with the whatsapp Facebook Developer app number: 
+
+`
+DISPLAY_PHONE_NUMBER = 'YOU-NUMBER'`
+
 Deploy architecture with CDK.
 
 Follow steps [here](/private-assistant/README.md)
