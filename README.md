@@ -1,5 +1,12 @@
 # aws-private-assistant
 
+---
+
+🇻🇪🇨🇱 [Dev.to](https://dev.to/elizabethfuentes12) [Linkedin](https://www.linkedin.com/in/lizfue/) [GitHub](https://github.com/elizabethfuentes12/) [Twitter](https://twitter.com/elizabethfue12) [Instagram](https://www.instagram.com/elifue.tech) [Youtube](https://www.youtube.com/channel/UCr0Gnc-t30m4xyrvsQpNp2Q)
+[Linktr](https://linktr.ee/elizabethfuentesleone)
+
+---
+
 ## Step 0: Activate WhatsApp account Facebook Developers
 
 1- [Get Started with the New WhatsApp Business Platform](https://www.youtube.com/watch?v=CEt_KMMv3V8&list=PLX_K_BlBdZKi4GOFmJ9_67og7pMzm2vXH&index=2&t=17s&pp=gAQBiAQB)
@@ -33,6 +40,19 @@ Edit WhatsApp configuration values in Facebook Developer in AWS Secrets Manager.
 Configure Webhook in the Facebook developer application
 
 ![Digrama parte 1](/imagenes/webhook.png)
+
+----
+
+## 🚨 Did you like this blog? 👩🏻‍💻 Do you have comments?🎤 tell me everything[here](https://www.pulse.aws/survey/6V3IYE9H)
+
+----
+
+## ¡Gracias!
+
+🇻🇪🇨🇱 [Dev.to](https://dev.to/elizabethfuentes12) [Linkedin](https://www.linkedin.com/in/lizfue/) [GitHub](https://github.com/elizabethfuentes12/) [Twitter](https://twitter.com/elizabethfue12) [Instagram](https://www.instagram.com/elifue.tech) [Youtube](https://www.youtube.com/channel/UCr0Gnc-t30m4xyrvsQpNp2Q)
+[Linktr](https://linktr.ee/elizabethfuentesleone)
+
+---
 
 ## Security
 
