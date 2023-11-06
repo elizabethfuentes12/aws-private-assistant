@@ -41,7 +41,14 @@ All data you send to this application will be hosted in your AWS account and wil
 In [private_assistant_stack.py](/private-assistant/private_assistant/private_assistant_stack.py) edit this line with the whatsapp Facebook Developer app number: 
 
 `
-DISPLAY_PHONE_NUMBER = 'YOU-NUMBER'`
+DISPLAY_PHONE_NUMBER = 'YOU-NUMBER'
+`
+
+This agent manages conversation memory, and you must set the session time [here](/private-assistant/lambdas/code/langchain_agent_text/lambda_function.py) in this line:
+
+`
+if diferencia > 240:  #session time in seg
+`
 
 Deploy architecture with CDK.
 
