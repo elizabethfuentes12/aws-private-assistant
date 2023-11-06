@@ -1,0 +1,166 @@
+{
+    "resource": "/cloudapi",
+    "path": "/cloudapi",
+    "httpMethod": "POST",
+    "headers": {
+        "Accept": "*/*",
+        "Accept-Encoding": "deflate, gzip",
+        "CloudFront-Forwarded-Proto": "https",
+        "CloudFront-Is-Desktop-Viewer": "true",
+        "CloudFront-Is-Mobile-Viewer": "false",
+        "CloudFront-Is-SmartTV-Viewer": "false",
+        "CloudFront-Is-Tablet-Viewer": "false",
+        "CloudFront-Viewer-ASN": "32934",
+        "CloudFront-Viewer-Country": "US",
+        "Content-Type": "application/json",
+        "Host": "is3d4cvyxa.execute-api.us-east-1.amazonaws.com",
+        "User-Agent": "facebookexternalua",
+        "Via": "1.1 6f118d3c15df75b5c24f41588d371920.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "caJhGZahREMFa_Za9uFtkiNcTAemU_nlbDiXV2V5KVM0WwH59Zo4Pw==",
+        "X-Amzn-Trace-Id": "Root=1-65282a5a-55348f2e0cf5339515e15e30",
+        "X-Forwarded-For": "173.252.95.1, 130.176.11.174",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https",
+        "X-Hub-Signature": "sha1=7b46ceda9ec6d5df9470484ecb97876c609c90a1",
+        "X-Hub-Signature-256": "sha256=d93839abcf784a5eed3a345b766dfa874876279f69158edffdf1cc8d84ce10e2"
+    },
+    "multiValueHeaders": {
+        "Accept": [
+            "*/*"
+        ],
+        "Accept-Encoding": [
+            "deflate, gzip"
+        ],
+        "CloudFront-Forwarded-Proto": [
+            "https"
+        ],
+        "CloudFront-Is-Desktop-Viewer": [
+            "true"
+        ],
+        "CloudFront-Is-Mobile-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-SmartTV-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-Tablet-Viewer": [
+            "false"
+        ],
+        "CloudFront-Viewer-ASN": [
+            "32934"
+        ],
+        "CloudFront-Viewer-Country": [
+            "US"
+        ],
+        "Content-Type": [
+            "application/json"
+        ],
+        "Host": [
+            "is3d4cvyxa.execute-api.us-east-1.amazonaws.com"
+        ],
+        "User-Agent": [
+            "facebookexternalua"
+        ],
+        "Via": [
+            "1.1 6f118d3c15df75b5c24f41588d371920.cloudfront.net (CloudFront)"
+        ],
+        "X-Amz-Cf-Id": [
+            "caJhGZahREMFa_Za9uFtkiNcTAemU_nlbDiXV2V5KVM0WwH59Zo4Pw=="
+        ],
+        "X-Amzn-Trace-Id": [
+            "Root=1-65282a5a-55348f2e0cf5339515e15e30"
+        ],
+        "X-Forwarded-For": [
+            "173.252.95.1, 130.176.11.174"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ],
+        "X-Hub-Signature": [
+            "sha1=7b46ceda9ec6d5df9470484ecb97876c609c90a1"
+        ],
+        "X-Hub-Signature-256": [
+            "sha256=d93839abcf784a5eed3a345b766dfa874876279f69158edffdf1cc8d84ce10e2"
+        ]
+    },
+    "queryStringParameters": 0,
+    "multiValueQueryStringParameters": 0,
+    "pathParameters": 0,
+    "stageVariables": 0,
+    "requestContext": {
+        "resourceId": "7wxuzh",
+        "resourcePath": "/cloudapi",
+        "httpMethod": "POST",
+        "extendedRequestId": "MsuOJGclIAMFfcw=",
+        "requestTime": "12/Oct/2023:17:18:18 +0000",
+        "path": "/prod/cloudapi",
+        "accountId": "476705473065",
+        "protocol": "HTTP/1.1",
+        "stage": "prod",
+        "domainPrefix": "is3d4cvyxa",
+        "requestTimeEpoch": 1697131098200,
+        "requestId": "94c1da48-0921-4ddf-b8f4-b09cb01efdf0",
+        "identity": {
+            "cognitoIdentityPoolId": 0,
+            "accountId": 0,
+            "cognitoIdentityId": 0,
+            "caller": 0,
+            "sourceIp": "173.252.95.1",
+            "principalOrgId": 0,
+            "accessKey": 0,
+            "cognitoAuthenticationType": 0,
+            "cognitoAuthenticationProvider": 0,
+            "userArn": 0,
+            "userAgent": "facebookexternalua",
+            "user": 0
+        },
+        "domainName": "is3d4cvyxa.execute-api.us-east-1.amazonaws.com",
+        "apiId": "is3d4cvyxa"
+    },
+    "body": {
+        "object": "whatsapp_business_account",
+        "entry": [
+            {
+                "id": "118176608049162",
+                "changes": [
+                    {
+                        "value": {
+                            "messaging_product": "whatsapp",
+                            "metadata": {
+                                "display_phone_number": "15550968671",
+                                "phone_number_id": "137090022812512"
+                            },
+                            "contacts": [
+                                {
+                                    "profile": {
+                                        "name": "Elizabeth Fuentes L"
+                                    },
+                                    "wa_id": "56963054578"
+                                }
+                            ],
+                            "messages": [
+                                {
+                                    "from": "56963054578",
+                                    "id": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQTlDQkFBOUE3RjI3RTc1QUNDMgA=",
+                                    "timestamp": "1697131096",
+                                    "type": "audio",
+                                    "audio": {
+                                        "mime_type": "audio\\/ogg; codecs=opus",
+                                        "sha256": "9B2pPgTQ6O54LGGeFXvqvc2LLBTpyap\\/Vz2nSi3ZRIc=",
+                                        "id": "1448860025658418",
+                                        "voice": "true"
+                                    }
+                                }
+                            ]
+                        },
+                        "field": "messages"
+                    }
+                ]
+            }
+        ]
+    },
+    "isBase64Encoded": "False"
+}

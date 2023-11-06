@@ -1,0 +1,38 @@
+{
+    "Records": [
+        {
+            "eventVersion": "2.1",
+            "eventSource": "aws:s3",
+            "awsRegion": "us-east-1",
+            "eventTime": "2023-10-21T18:57:03.782Z",
+            "eventName": "ObjectCreated:Put",
+            "userIdentity": {
+                "principalId": "AWS:AROAW57O4IIUZYTHGZVRP:ReInvent2023Stack-FnjobTranscribe91FE5F66-HjM70s8C5xYk"
+            },
+            "requestParameters": {
+                "sourceIPAddress": "10.0.103.247"
+            },
+            "responseElements": {
+                "x-amz-request-id": "XT8FV70QPX20HZ0R",
+                "x-amz-id-2": "/QbTi3l/LTsQYobyAhivfXL4XepgXx27rTLioy4q0YlbgDFSaLENVHx8kUC1cyhlCH+q6Hlc2n2MLbAXdMU1ybGLjysRx1lC"
+            },
+            "s3": {
+                "s3SchemaVersion": "1.0",
+                "configurationId": "YTRmYWY1NWMtYzQxNy00OGU4LThiNTUtNTg1MDU4ZGE5NGNj",
+                "bucket": {
+                    "name": "reinvent2023stack-airlinedemobucket7e3e1509-y38boj68rqn2",
+                    "ownerIdentity": {
+                        "principalId": "A3A3C3UAUG3DUH"
+                    },
+                    "arn": "arn:aws:s3:::reinvent2023stack-airlinedemobucket7e3e1509-y38boj68rqn2"
+                },
+                "object": {
+                    "key": "text-to-whatsapp/.write_access_check_file.temp",
+                    "size": 2,
+                    "eTag": "d751713988987e9331980363e24189ce",
+                    "sequencer": "0065341EFFBF29A8E5"
+                }
+            }
+        }
+    ]
+}

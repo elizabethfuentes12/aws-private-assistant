@@ -1,0 +1,725 @@
+{
+    "Records": [
+        {
+            "eventID": "21010e5aefd5affedaba314d8758b4f4",
+            "eventName": "REMOVE",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1699196901.0,
+                "Keys": {
+                    "messages_id": {
+                        "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQURBODA1Mjg5NzJDRjE0NkQ4MQA="
+                    }
+                },
+                "OldImage": {
+                    "whats_token": {
+                        "S": "Bearer EAAEX2hhUZBZCoBO6O10XZB7rAGRU6vZBZA946WSL5P7EsZA9WWZAyn0WQtsiwJNXIdU74WRNZBrdUKIxHpcTppZAdLiBa34asSKvxxxoKg9ZCVcZB4MKio5sGdgZCG4vH1QF4ZBHWqp26lA6vJihvRhjGguLT40hZCuoVZADAAEH0mBuYX5OQxyfiZC757mqUTh90g9pCrb5EZCBWN5sHYYRy"
+                    },
+                    "changes": {
+                        "L": [
+                            {
+                                "M": {
+                                    "field": {
+                                        "S": "messages"
+                                    },
+                                    "value": {
+                                        "M": {
+                                            "metadata": {
+                                                "M": {
+                                                    "phone_number_id": {
+                                                        "S": "148799178317666"
+                                                    },
+                                                    "display_phone_number": {
+                                                        "S": "56227606851"
+                                                    }
+                                                }
+                                            },
+                                            "messaging_product": {
+                                                "S": "whatsapp"
+                                            },
+                                            "messages": {
+                                                "L": [
+                                                    {
+                                                        "M": {
+                                                            "from": {
+                                                                "S": "56963054578"
+                                                            },
+                                                            "id": {
+                                                                "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQURBODA1Mjg5NzJDRjE0NkQ4MQA="
+                                                            },
+                                                            "text": {
+                                                                "M": {
+                                                                    "body": {
+                                                                        "S": "Hola mi nombre es jorge con ID 11886757812199 y quiero saber si puedo cambiar mi ticket de avion"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "type": {
+                                                                "S": "text"
+                                                            },
+                                                            "timestamp": {
+                                                                "S": "1699192626"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "contacts": {
+                                                "L": [
+                                                    {
+                                                        "M": {
+                                                            "profile": {
+                                                                "M": {
+                                                                    "name": {
+                                                                        "S": "Elizabeth Fuentes L"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "wa_id": {
+                                                                "S": "56963054578"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": {
+                        "S": "144379092096277"
+                    },
+                    "messages_id": {
+                        "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQURBODA1Mjg5NzJDRjE0NkQ4MQA="
+                    }
+                },
+                "SequenceNumber": "2258300000000049318539287",
+                "SizeBytes": 840,
+                "StreamViewType": "NEW_AND_OLD_IMAGES"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:528681203296:table/TranscriberStack-TblwhatsappMetaDataFAE2A0E7-5RVTXUKP044K/stream/2023-11-04T23:38:42.767"
+        },
+        {
+            "eventID": "a52417f1075981a3bd9f3e184c85f61d",
+            "eventName": "REMOVE",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1699196901.0,
+                "Keys": {
+                    "messages_id": {
+                        "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQTYxQkRERjJGNjc0MDAxNTExOAA="
+                    }
+                },
+                "OldImage": {
+                    "whats_token": {
+                        "S": "Bearer EAAEX2hhUZBZCoBO6O10XZB7rAGRU6vZBZA946WSL5P7EsZA9WWZAyn0WQtsiwJNXIdU74WRNZBrdUKIxHpcTppZAdLiBa34asSKvxxxoKg9ZCVcZB4MKio5sGdgZCG4vH1QF4ZBHWqp26lA6vJihvRhjGguLT40hZCuoVZADAAEH0mBuYX5OQxyfiZC757mqUTh90g9pCrb5EZCBWN5sHYYRy"
+                    },
+                    "changes": {
+                        "L": [
+                            {
+                                "M": {
+                                    "field": {
+                                        "S": "messages"
+                                    },
+                                    "value": {
+                                        "M": {
+                                            "metadata": {
+                                                "M": {
+                                                    "phone_number_id": {
+                                                        "S": "137090022812512"
+                                                    },
+                                                    "display_phone_number": {
+                                                        "S": "15550968671"
+                                                    }
+                                                }
+                                            },
+                                            "messaging_product": {
+                                                "S": "whatsapp"
+                                            },
+                                            "messages": {
+                                                "L": [
+                                                    {
+                                                        "M": {
+                                                            "from": {
+                                                                "S": "56963054578"
+                                                            },
+                                                            "id": {
+                                                                "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQTYxQkRERjJGNjc0MDAxNTExOAA="
+                                                            },
+                                                            "text": {
+                                                                "M": {
+                                                                    "body": {
+                                                                        "S": "Hola"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "type": {
+                                                                "S": "text"
+                                                            },
+                                                            "timestamp": {
+                                                                "S": "1699195503"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "contacts": {
+                                                "L": [
+                                                    {
+                                                        "M": {
+                                                            "profile": {
+                                                                "M": {
+                                                                    "name": {
+                                                                        "S": "Elizabeth Fuentes L"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "wa_id": {
+                                                                "S": "56963054578"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": {
+                        "S": "118176608049162"
+                    },
+                    "messages_id": {
+                        "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQTYxQkRERjJGNjc0MDAxNTExOAA="
+                    }
+                },
+                "SequenceNumber": "2258400000000049318539381",
+                "SizeBytes": 748,
+                "StreamViewType": "NEW_AND_OLD_IMAGES"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:528681203296:table/TranscriberStack-TblwhatsappMetaDataFAE2A0E7-5RVTXUKP044K/stream/2023-11-04T23:38:42.767"
+        },
+        {
+            "eventID": "2f11303ddad34c119681b02c22222e27",
+            "eventName": "REMOVE",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1699196901.0,
+                "Keys": {
+                    "messages_id": {
+                        "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQUEwREJBNUMxMzg3ODM1NTczRAA="
+                    }
+                },
+                "OldImage": {
+                    "whats_token": {
+                        "S": "Bearer EAAEX2hhUZBZCoBO6O10XZB7rAGRU6vZBZA946WSL5P7EsZA9WWZAyn0WQtsiwJNXIdU74WRNZBrdUKIxHpcTppZAdLiBa34asSKvxxxoKg9ZCVcZB4MKio5sGdgZCG4vH1QF4ZBHWqp26lA6vJihvRhjGguLT40hZCuoVZADAAEH0mBuYX5OQxyfiZC757mqUTh90g9pCrb5EZCBWN5sHYYRy"
+                    },
+                    "changes": {
+                        "L": [
+                            {
+                                "M": {
+                                    "field": {
+                                        "S": "messages"
+                                    },
+                                    "value": {
+                                        "M": {
+                                            "metadata": {
+                                                "M": {
+                                                    "phone_number_id": {
+                                                        "S": "137090022812512"
+                                                    },
+                                                    "display_phone_number": {
+                                                        "S": "15550968671"
+                                                    }
+                                                }
+                                            },
+                                            "messaging_product": {
+                                                "S": "whatsapp"
+                                            },
+                                            "messages": {
+                                                "L": [
+                                                    {
+                                                        "M": {
+                                                            "from": {
+                                                                "S": "56963054578"
+                                                            },
+                                                            "id": {
+                                                                "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQUEwREJBNUMxMzg3ODM1NTczRAA="
+                                                            },
+                                                            "text": {
+                                                                "M": {
+                                                                    "body": {
+                                                                        "S": "Hola"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "type": {
+                                                                "S": "text"
+                                                            },
+                                                            "timestamp": {
+                                                                "S": "1699195817"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "contacts": {
+                                                "L": [
+                                                    {
+                                                        "M": {
+                                                            "profile": {
+                                                                "M": {
+                                                                    "name": {
+                                                                        "S": "Elizabeth Fuentes L"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "wa_id": {
+                                                                "S": "56963054578"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": {
+                        "S": "118176608049162"
+                    },
+                    "messages_id": {
+                        "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQUEwREJBNUMxMzg3ODM1NTczRAA="
+                    }
+                },
+                "SequenceNumber": "2258500000000049318539382",
+                "SizeBytes": 748,
+                "StreamViewType": "NEW_AND_OLD_IMAGES"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:528681203296:table/TranscriberStack-TblwhatsappMetaDataFAE2A0E7-5RVTXUKP044K/stream/2023-11-04T23:38:42.767"
+        },
+        {
+            "eventID": "4c0768635c41fd9a2aee807c54193ed1",
+            "eventName": "REMOVE",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1699196901.0,
+                "Keys": {
+                    "messages_id": {
+                        "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQTAzNzJEN0RERUREMEU3MDI5MAA="
+                    }
+                },
+                "OldImage": {
+                    "whats_token": {
+                        "S": "Bearer EAAEX2hhUZBZCoBO6O10XZB7rAGRU6vZBZA946WSL5P7EsZA9WWZAyn0WQtsiwJNXIdU74WRNZBrdUKIxHpcTppZAdLiBa34asSKvxxxoKg9ZCVcZB4MKio5sGdgZCG4vH1QF4ZBHWqp26lA6vJihvRhjGguLT40hZCuoVZADAAEH0mBuYX5OQxyfiZC757mqUTh90g9pCrb5EZCBWN5sHYYRy"
+                    },
+                    "changes": {
+                        "L": [
+                            {
+                                "M": {
+                                    "field": {
+                                        "S": "messages"
+                                    },
+                                    "value": {
+                                        "M": {
+                                            "metadata": {
+                                                "M": {
+                                                    "phone_number_id": {
+                                                        "S": "137090022812512"
+                                                    },
+                                                    "display_phone_number": {
+                                                        "S": "15550968671"
+                                                    }
+                                                }
+                                            },
+                                            "messaging_product": {
+                                                "S": "whatsapp"
+                                            },
+                                            "messages": {
+                                                "L": [
+                                                    {
+                                                        "M": {
+                                                            "from": {
+                                                                "S": "56963054578"
+                                                            },
+                                                            "id": {
+                                                                "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQTAzNzJEN0RERUREMEU3MDI5MAA="
+                                                            },
+                                                            "text": {
+                                                                "M": {
+                                                                    "body": {
+                                                                        "S": "Hola"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "type": {
+                                                                "S": "text"
+                                                            },
+                                                            "timestamp": {
+                                                                "S": "1699192056"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "contacts": {
+                                                "L": [
+                                                    {
+                                                        "M": {
+                                                            "profile": {
+                                                                "M": {
+                                                                    "name": {
+                                                                        "S": "Elizabeth Fuentes L"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "wa_id": {
+                                                                "S": "56963054578"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": {
+                        "S": "118176608049162"
+                    },
+                    "messages_id": {
+                        "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQTAzNzJEN0RERUREMEU3MDI5MAA="
+                    }
+                },
+                "SequenceNumber": "2258600000000049318539383",
+                "SizeBytes": 748,
+                "StreamViewType": "NEW_AND_OLD_IMAGES"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:528681203296:table/TranscriberStack-TblwhatsappMetaDataFAE2A0E7-5RVTXUKP044K/stream/2023-11-04T23:38:42.767"
+        },
+        {
+            "eventID": "cf7e943cd38bf87ed2f509df8c74a858",
+            "eventName": "REMOVE",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1699196901.0,
+                "Keys": {
+                    "messages_id": {
+                        "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQUNFNTdEMjA2M0ZFQUQ3M0Y5MAA="
+                    }
+                },
+                "OldImage": {
+                    "whats_token": {
+                        "S": "Bearer EAAEX2hhUZBZCoBO6O10XZB7rAGRU6vZBZA946WSL5P7EsZA9WWZAyn0WQtsiwJNXIdU74WRNZBrdUKIxHpcTppZAdLiBa34asSKvxxxoKg9ZCVcZB4MKio5sGdgZCG4vH1QF4ZBHWqp26lA6vJihvRhjGguLT40hZCuoVZADAAEH0mBuYX5OQxyfiZC757mqUTh90g9pCrb5EZCBWN5sHYYRy"
+                    },
+                    "changes": {
+                        "L": [
+                            {
+                                "M": {
+                                    "field": {
+                                        "S": "messages"
+                                    },
+                                    "value": {
+                                        "M": {
+                                            "metadata": {
+                                                "M": {
+                                                    "phone_number_id": {
+                                                        "S": "148799178317666"
+                                                    },
+                                                    "display_phone_number": {
+                                                        "S": "56227606851"
+                                                    }
+                                                }
+                                            },
+                                            "messaging_product": {
+                                                "S": "whatsapp"
+                                            },
+                                            "messages": {
+                                                "L": [
+                                                    {
+                                                        "M": {
+                                                            "from": {
+                                                                "S": "56963054578"
+                                                            },
+                                                            "id": {
+                                                                "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQUNFNTdEMjA2M0ZFQUQ3M0Y5MAA="
+                                                            },
+                                                            "text": {
+                                                                "M": {
+                                                                    "body": {
+                                                                        "S": "Hola mi nombre es cordy y quiero saber información de mi vuelo, mi id es 65681027"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "type": {
+                                                                "S": "text"
+                                                            },
+                                                            "timestamp": {
+                                                                "S": "1699193591"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "contacts": {
+                                                "L": [
+                                                    {
+                                                        "M": {
+                                                            "profile": {
+                                                                "M": {
+                                                                    "name": {
+                                                                        "S": "Elizabeth Fuentes L"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "wa_id": {
+                                                                "S": "56963054578"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": {
+                        "S": "144379092096277"
+                    },
+                    "messages_id": {
+                        "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQUNFNTdEMjA2M0ZFQUQ3M0Y5MAA="
+                    }
+                },
+                "SequenceNumber": "2258700000000049318539384",
+                "SizeBytes": 826,
+                "StreamViewType": "NEW_AND_OLD_IMAGES"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:528681203296:table/TranscriberStack-TblwhatsappMetaDataFAE2A0E7-5RVTXUKP044K/stream/2023-11-04T23:38:42.767"
+        },
+        {
+            "eventID": "6991c83c8747f19b55cd1606a8cf8310",
+            "eventName": "REMOVE",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1699196901.0,
+                "Keys": {
+                    "messages_id": {
+                        "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQUQ1QTdGRTlCMUZEN0M0NzYwRQA="
+                    }
+                },
+                "OldImage": {
+                    "whats_token": {
+                        "S": "Bearer EAAEX2hhUZBZCoBO6O10XZB7rAGRU6vZBZA946WSL5P7EsZA9WWZAyn0WQtsiwJNXIdU74WRNZBrdUKIxHpcTppZAdLiBa34asSKvxxxoKg9ZCVcZB4MKio5sGdgZCG4vH1QF4ZBHWqp26lA6vJihvRhjGguLT40hZCuoVZADAAEH0mBuYX5OQxyfiZC757mqUTh90g9pCrb5EZCBWN5sHYYRy"
+                    },
+                    "changes": {
+                        "L": [
+                            {
+                                "M": {
+                                    "field": {
+                                        "S": "messages"
+                                    },
+                                    "value": {
+                                        "M": {
+                                            "metadata": {
+                                                "M": {
+                                                    "phone_number_id": {
+                                                        "S": "137090022812512"
+                                                    },
+                                                    "display_phone_number": {
+                                                        "S": "15550968671"
+                                                    }
+                                                }
+                                            },
+                                            "messaging_product": {
+                                                "S": "whatsapp"
+                                            },
+                                            "messages": {
+                                                "L": [
+                                                    {
+                                                        "M": {
+                                                            "from": {
+                                                                "S": "56963054578"
+                                                            },
+                                                            "id": {
+                                                                "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQUQ1QTdGRTlCMUZEN0M0NzYwRQA="
+                                                            },
+                                                            "text": {
+                                                                "M": {
+                                                                    "body": {
+                                                                        "S": "Hola"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "type": {
+                                                                "S": "text"
+                                                            },
+                                                            "timestamp": {
+                                                                "S": "1699194529"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "contacts": {
+                                                "L": [
+                                                    {
+                                                        "M": {
+                                                            "profile": {
+                                                                "M": {
+                                                                    "name": {
+                                                                        "S": "Elizabeth Fuentes L"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "wa_id": {
+                                                                "S": "56963054578"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": {
+                        "S": "118176608049162"
+                    },
+                    "messages_id": {
+                        "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQUQ1QTdGRTlCMUZEN0M0NzYwRQA="
+                    }
+                },
+                "SequenceNumber": "2258800000000049318539385",
+                "SizeBytes": 748,
+                "StreamViewType": "NEW_AND_OLD_IMAGES"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:528681203296:table/TranscriberStack-TblwhatsappMetaDataFAE2A0E7-5RVTXUKP044K/stream/2023-11-04T23:38:42.767"
+        },
+        {
+            "eventID": "90fcbf04fcbe99e92555f3e253984ea5",
+            "eventName": "REMOVE",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1699196901.0,
+                "Keys": {
+                    "messages_id": {
+                        "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQTNCQzAwNEU3RkVCNUQ0NzVERAA="
+                    }
+                },
+                "OldImage": {
+                    "whats_token": {
+                        "S": "Bearer EAAEX2hhUZBZCoBO6O10XZB7rAGRU6vZBZA946WSL5P7EsZA9WWZAyn0WQtsiwJNXIdU74WRNZBrdUKIxHpcTppZAdLiBa34asSKvxxxoKg9ZCVcZB4MKio5sGdgZCG4vH1QF4ZBHWqp26lA6vJihvRhjGguLT40hZCuoVZADAAEH0mBuYX5OQxyfiZC757mqUTh90g9pCrb5EZCBWN5sHYYRy"
+                    },
+                    "changes": {
+                        "L": [
+                            {
+                                "M": {
+                                    "field": {
+                                        "S": "messages"
+                                    },
+                                    "value": {
+                                        "M": {
+                                            "metadata": {
+                                                "M": {
+                                                    "phone_number_id": {
+                                                        "S": "148799178317666"
+                                                    },
+                                                    "display_phone_number": {
+                                                        "S": "56227606851"
+                                                    }
+                                                }
+                                            },
+                                            "messaging_product": {
+                                                "S": "whatsapp"
+                                            },
+                                            "messages": {
+                                                "L": [
+                                                    {
+                                                        "M": {
+                                                            "from": {
+                                                                "S": "56963054578"
+                                                            },
+                                                            "id": {
+                                                                "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQTNCQzAwNEU3RkVCNUQ0NzVERAA="
+                                                            },
+                                                            "text": {
+                                                                "M": {
+                                                                    "body": {
+                                                                        "S": "Hola mi nombre es jorge con ID 11886757812199 y quiero saber si puedo cambiar mi ticket de avion"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "type": {
+                                                                "S": "text"
+                                                            },
+                                                            "timestamp": {
+                                                                "S": "1699193070"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "contacts": {
+                                                "L": [
+                                                    {
+                                                        "M": {
+                                                            "profile": {
+                                                                "M": {
+                                                                    "name": {
+                                                                        "S": "Elizabeth Fuentes L"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "wa_id": {
+                                                                "S": "56963054578"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": {
+                        "S": "144379092096277"
+                    },
+                    "messages_id": {
+                        "S": "wamid.HBgLNTY5NjMwNTQ1NzgVAgASGBQzQTNCQzAwNEU3RkVCNUQ0NzVERAA="
+                    }
+                },
+                "SequenceNumber": "2258900000000049318539386",
+                "SizeBytes": 840,
+                "StreamViewType": "NEW_AND_OLD_IMAGES"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:528681203296:table/TranscriberStack-TblwhatsappMetaDataFAE2A0E7-5RVTXUKP044K/stream/2023-11-04T23:38:42.767"
+        }
+    ]
+}
