@@ -1,6 +1,6 @@
 # aws-private-assistant
 
-# Activate WhatsApp account Facebook Developers
+## Step 0: Activate WhatsApp account Facebook Developers
 
 1- [Get Started with the New WhatsApp Business Platform](https://www.youtube.com/watch?v=CEt_KMMv3V8&list=PLX_K_BlBdZKi4GOFmJ9_67og7pMzm2vXH&index=2&t=17s&pp=gAQBiAQB)
 
