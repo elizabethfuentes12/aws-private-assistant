@@ -1,13 +1,31 @@
-# aws-private-assistant
+# Private Assistant on AWS
 
-![Digrama parte 1](/imagenes/gif_01.gif)
-
----
 
 🇻🇪🇨🇱 [Dev.to](https://dev.to/elizabethfuentes12) [Linkedin](https://www.linkedin.com/in/lizfue/) [GitHub](https://github.com/elizabethfuentes12/) [Twitter](https://twitter.com/elizabethfue12) [Instagram](https://www.instagram.com/elifue.tech) [Youtube](https://www.youtube.com/channel/UCr0Gnc-t30m4xyrvsQpNp2Q)
 [Linktr](https://linktr.ee/elizabethfuentesleone)
 
 ---
+
+Private Assistant is an application integrated with WhatsApp that allows you to chat with an LLM hosted on Amazon Bedrock and can also send them voice notes and return the transcription of this.
+
+All data you send to this application will be hosted in your AWS account and will not be shared with anyone, and will not be used to re-train models.
+
+![Digrama parte 1](/imagenes/gif_01.gif)
+
+✅ **AWS Level**: Intermediate - 200   
+
+**Prerequisites:**
+
+- [AWS Account](https://aws.amazon.com/resources/create-account/?sc_channel=el&sc_campaign=datamlwave&sc_content=cicdcfnaws&sc_geo=mult&sc_country=mult&sc_outcome=acq) 
+-  [Foundational knowledge of Python](https://catalog.us-east-1.prod.workshops.aws/workshops/3d705026-9edc-40e8-b353-bdabb116c89c/) 
+
+💰 **Cost to complete**: 
+- [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/)
+- [Amazon Lambda Pricing](https://aws.amazon.com/lambda/pricing/)
+- [Amazon Transcribe Pricing](https://aws.amazon.com/transcribe/pricing/)
+- [Amazon DynamoDB Pricing](https://aws.amazon.com/dynamodb/pricing/)
+- [Amazon APIGateway Pricing](https://aws.amazon.com/api-gateway/pricing/)
+- [Whatsapp pricing](https://developers.facebook.com/docs/whatsapp/pricing/)
 
 ## Step 0: Activate WhatsApp account Facebook Developers
 
