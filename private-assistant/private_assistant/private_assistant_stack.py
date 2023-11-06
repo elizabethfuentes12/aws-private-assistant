@@ -29,7 +29,7 @@ class PrivateAssistantStack(Stack):
         AudioKeyName = "audio-from-whatsapp"
         TextBucketName = "text-to-whatsapp"
         model_id = "anthropic.claude-instant-v1"
-        DISPLAY_PHONE_NUMBER = 'YOU-NUMBER'
+        DISPLAY_PHONE_NUMBER = '15550968671'
 
         #Whatsapp Secrets Values
         secrets = secretsmanager.Secret(self, "Secrets", secret_object_value = {
