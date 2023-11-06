@@ -8,7 +8,7 @@
 
 Private Assistant is an application integrated with WhatsApp that allows you to chat with an LLM hosted on Amazon Bedrock and can also send them voice notes and return the transcription of this.
 
-All data you send to this application will be hosted in your AWS account and will not be shared with anyone, and will not be used to re-train models.
+All data you send to this application will be hosted in your AWS account and will not be shared with anyone, and will not be used to re-train models... But the security of data with WhatsApp is not guaranteed.
 
 ![Digrama parte 1](/imagenes/gif_01.gif)
 
