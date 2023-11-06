@@ -56,6 +56,7 @@ def get_chat_response(llm,prompt, memory):
     conversation_with_summary.prompt.template ="""The following is a friendly conversation between a human and an AI. 
     The AI is talkative and provides lots of specific details from its context. 
     If the AI does not know the answer to a question, it truthfully says it does not know.
+    Always reply in the original user language.
 
     Current conversation:
     {history}
