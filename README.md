@@ -1,4 +1,4 @@
-# Private Assistant on AWS
+# Open Source Private Assistant on AWS
 
 
 🇻🇪🇨🇱 [Dev.to](https://dev.to/elizabethfuentes12) [Linkedin](https://www.linkedin.com/in/lizfue/) [GitHub](https://github.com/elizabethfuentes12/) [Twitter](https://twitter.com/elizabethfue12) [Instagram](https://www.instagram.com/elifue.tech) [Youtube](https://www.youtube.com/channel/UCr0Gnc-t30m4xyrvsQpNp2Q)
@@ -6,9 +6,9 @@
 
 ---
 
-Private Assistant is an application integrated with WhatsApp that allows you to chat with an LLM hosted on Amazon Bedrock and can also send them voice notes and return the transcription of this.
+Private Assistant is an application integrated with WhatsApp that allows you to chat with an LLM hosted on Amazon Bedrock and you can also send it voice notes and it will return the transcription of it. 
 
-All data you send to this application will be hosted in your AWS account and will not be shared with anyone, and will not be used to re-train models... But the security of data with WhatsApp is not guaranteed.
+All data you send to this application will be hosted in your AWS account and will not be shared with anyone or used to retrain models... But the security of data with WhatsApp is not guaranteed, so it is not recommended share private information.
 
 ![Digrama parte 1](/imagenes/gif_01.gif)
 
