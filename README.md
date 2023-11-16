@@ -50,6 +50,8 @@ This agent manages conversation memory, and you must set the session time [here]
 if diferencia > 240:  #session time in seg
 `
 
+> **Tip:** [Kenton Blacutt](https://github.com/KBB99), an AWS Associate Cloud App Developer, collaborated with Langchain, creating the [Amazon Dynamodb based memory class](https://github.com/langchain-ai/langchain/pull/1058) that allows us to store the history of a langchain agent in an [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html?sc_channel=el&sc_campaign=genaiwave&sc_content=working-with-your-live-data-using-langchain&sc_geo=mult&sc_country=mult&sc_outcome=acq).
+
 Deploy architecture with CDK.
 
 Follow steps [here](/private-assistant/README.md)
