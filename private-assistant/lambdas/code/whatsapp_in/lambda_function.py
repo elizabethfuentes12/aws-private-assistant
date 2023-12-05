@@ -8,6 +8,7 @@ import json
 import os
 import boto3
 from botocore.exceptions import ClientError
+import time
 
 lambda_client = boto3.client('lambda')
 
@@ -50,6 +51,12 @@ def lambda_handler(event, context):
         print("Iterating entry")
         print(entry)
         display_phone_number=entry["changes"][0]["value"]["metadata"]["display_phone_number"]
+        timestamp = int(entry["changes"][0]["value"]["messages"][0]["timestamp"])
+        now = int(time.time())
+        diferencia = now - timestamp
+        if diferencia > 300:  #session time in seg
+            print("old message")
+            break
         
         if display_phone_number == valid_display_phone_number:
             try:
