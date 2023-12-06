@@ -1,4 +1,3 @@
-
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ##++++++ Amazon Lambda Function for processing WhatsApp incoming messages +++++
 ## Updated to Whatsapp API v14
@@ -42,52 +41,56 @@ def lambda_handler(event, context):
         try:               
             entry = json.loads(json.dumps(ddb_deserialize(rec['dynamodb']['NewImage']), cls=DecimalEncoder))
             messages_id = entry["messages_id"]
-
-            print("messages_id: ", messages_id)
-            print("entry: ",entry)
-            WHATS_TOKEN = entry["whats_token"]
-
-            for change in entry['changes']:
-                print("Iterating change")
-                print(change)
-                ## Skipping as no contact info was relevant.
-                if('contacts' not in change['value']):
-                    continue
-                    
-                whats_message = change['value']['messages'][0]
-
-                phone_id = change['value']['metadata']['phone_number_id']
-                name = change['value']['contacts'][0]['profile']['name']
-                phone = '+' + str(whats_message['from'])
-                channel = 'whatsapp'
-
-                ##Define message type
-                messageType =whats_message['type']
-                if(messageType == 'text'):
-                    message = whats_message['text']['body']
-                    process_text(message, WHATS_TOKEN,phone,phone_id,messages_id)
-
-                    
-                # Agregar para respuestas a boton!    
-                elif(messageType == 'button'):
-                    message =whats_message['button']['text']
-                
-                elif(messageType == 'audio'):
-                    #processed_audio = process_audio(whats_message, WHATS_TOKEN,phone,systemNumber)
-                    processed_job_audio = star_job_audio(whats_message, WHATS_TOKEN,phone,phone_id,messages_id)
-                    
-                    message = "Procesando.."
-                else:
-                    message = 'Attachment'
-                    fileType = whats_message[messageType]['mime_type']
-                    fileName = whats_message[messageType].get('filename',phone + '.'+fileType.split("/")[1])
-                    fileId = whats_message[messageType]['id']
-                    fileUrl = get_media_url(fileId,WHATS_TOKEN)
-                    
-                    print(fileType)
-                print(message, messageType, name, phone_id)
-                print(build_response (200,json.dumps('All good!')))
+            event_name = rec['eventName']
+            print(event_name)
             
+            if event_name == "INSERT":
+                print("messages_id: ", messages_id)
+                print("entry: ",entry)
+                WHATS_TOKEN = entry["whats_token"]
+    
+                for change in entry['changes']:
+                    print("Iterating change")
+                    print(change)
+                    ## Skipping as no contact info was relevant.
+                    if('contacts' not in change['value']):
+                        continue
+                        
+                    whats_message = change['value']['messages'][0]
+    
+                    phone_id = change['value']['metadata']['phone_number_id']
+                    name = change['value']['contacts'][0]['profile']['name']
+                    phone = '+' + str(whats_message['from'])
+                    channel = 'whatsapp'
+    
+                    ##Define message type
+                    messageType =whats_message['type']
+                    if(messageType == 'text'):
+                        message = whats_message['text']['body']
+                        process_text(message, WHATS_TOKEN,phone,phone_id,messages_id)
+    
+                        
+                    # Agregar para respuestas a boton!    
+                    elif(messageType == 'button'):
+                        message =whats_message['button']['text']
+                    
+                    elif(messageType == 'audio'):
+                        #processed_audio = process_audio(whats_message, WHATS_TOKEN,phone,systemNumber)
+                        processed_job_audio = star_job_audio(whats_message, WHATS_TOKEN,phone,phone_id,messages_id)
+                        
+                        message = "Procesando.."
+                    else:
+                        message = 'Attachment'
+                        fileType = whats_message[messageType]['mime_type']
+                        fileName = whats_message[messageType].get('filename',phone + '.'+fileType.split("/")[1])
+                        fileId = whats_message[messageType]['id']
+                        fileUrl = get_media_url(fileId,WHATS_TOKEN)
+                        
+                        print(fileType)
+                    print(message, messageType, name, phone_id)
+                    print(build_response (200,json.dumps('All good!')))
+            else: 
+                print("no New INSERT")
         except:
             print("no New Image")
         
@@ -155,17 +158,3 @@ def star_job_audio(whats_message, whats_token,phone,phone_id,messages_id):
         error = err
         print(err.get("Error", {}).get("Code"))
         return f"Un error invocando {JOB_TRANSCRIPTOR_LAMBDA}"
-
-
-
-
-
-
-
-
-
-
-
-
-
-

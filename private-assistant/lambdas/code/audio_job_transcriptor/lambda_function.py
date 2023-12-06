@@ -6,6 +6,7 @@ import sys
 import datetime
 import uuid
 from botocore.exceptions import ClientError
+import re
 
 
 from file_utils import( get_media_url , get_whats_media,put_file)
@@ -30,7 +31,8 @@ client_s3 = boto3.client('s3')
 
 #https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/start_transcription_job.html
 
-def update_item(value,jobName,now):
+def db_update_item(value,jobName,now):
+    print("Update jobname")
     try:
         response = table.update_item(
             Key={
@@ -41,7 +43,7 @@ def update_item(value,jobName,now):
                     ':item1': jobName,
                     ':item2': now,
                 },
-                ReturnValues="UPDATED_NEW")
+                ReturnValues="ALL_NEW")
         print (response)
     except Exception as e:
         print (e)
@@ -129,11 +131,12 @@ def lambda_handler(event, context):
 
     start_job_transciptor (jobName,s3Path_in,bucket_key_out,codec)
     
-    value = whats_message['id'] 
+    value = whats_message['id'].strip().replace(" ","")
+    jobName= jobName.strip().replace(" ","")
     print(value)
     print(jobName)
     print(now)
-    update_item(value,jobName,now)
+    db_update_item(value,jobName,now)
 
 
     return True

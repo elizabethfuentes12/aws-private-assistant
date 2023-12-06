@@ -121,6 +121,12 @@ class PrivateAssistantStack(Stack):
         Tbl.whatsapp_MetaData_follow.grant_full_access(Fn.transcriber_done)
         Fn.transcriber_done.add_environment(key='whatsapp_MetaData', value=Tbl.whatsapp_MetaData_follow.table_name)
 
+        Fn.langchain_agent_text.grant_invoke(Fn.transcriber_done)
+
+        Fn.transcriber_done.add_environment( key='ENV_LAMBDA_AGENT_TEXT', value=Fn.langchain_agent_text.function_name)
+
+
+
 
         # langchain_agent_text
 
