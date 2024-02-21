@@ -27,6 +27,8 @@ All data you send to this application will be hosted in your AWS account and wil
 - [Amazon APIGateway Pricing](https://aws.amazon.com/api-gateway/pricing/)
 - [Whatsapp pricing](https://developers.facebook.com/docs/whatsapp/pricing/)
 
+## Let's build!
+
 ## Step 0: Activate WhatsApp account Facebook Developers
 
 1- [Get Started with the New WhatsApp Business Platform](https://www.youtube.com/watch?v=CEt_KMMv3V8&list=PLX_K_BlBdZKi4GOFmJ9_67og7pMzm2vXH&index=2&t=17s&pp=gAQBiAQB)
@@ -36,7 +38,61 @@ All data you send to this application will be hosted in your AWS account and wil
 3- [Get started with the Messenger API for Instagram](https://www.youtube.com/watch?v=Pi2KxYeGMXo&list=PLX_K_BlBdZKi4GOFmJ9_67og7pMzm2vXH&index=5&t=376s&pp=gAQBiAQB)
 
 
-## Step 1: 
+## Step 1: Deploy architecture with CDK.
+
+Deploy architecture with CDK.
+
+Follow steps [here](/private-assistant/README.md)
+
+![Digrama parte 1](/imagenes/arquitectura.png)
+
+
+✅ **Clone the repo**
+
+```
+git clone https://github.com/elizabethfuentes12/aws-private-assistant
+```
+
+✅ **Go to**: 
+
+```
+cd private-assistant
+```
+
+✅ **Create The Virtual Environment**: by following the steps in the [README](/private-assistant/README.md)
+
+```
+python3 -m venv .venv
+```
+
+```
+source .venv/bin/activate
+```
+for windows: 
+
+```
+.venv\Scripts\activate.bat
+```
+
+✅ **Install The Requirements**:
+
+```
+pip install -r requirements.txt
+```
+
+✅ **Synthesize The Cloudformation Template With The Following Command**:
+
+```
+cdk synth
+```
+
+✅🚀 **The Deployment**:
+
+```
+cdk deploy
+```
+
+## Step 2: APP Set Up
 
 In [private_assistant_stack.py](/private-assistant/private_assistant/private_assistant_stack.py) edit this line with the whatsapp Facebook Developer app number: 
 
@@ -52,19 +108,15 @@ if diferencia > 240:  #session time in seg
 
 > **Tip:** [Kenton Blacutt](https://github.com/KBB99), an AWS Associate Cloud App Developer, collaborated with Langchain, creating the [Amazon Dynamodb based memory class](https://github.com/langchain-ai/langchain/pull/1058) that allows us to store the history of a langchain agent in an [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html?sc_channel=el&sc_campaign=genaiwave&sc_content=working-with-your-live-data-using-langchain&sc_geo=mult&sc_country=mult&sc_outcome=acq).
 
-Deploy architecture with CDK.
 
-Follow steps [here](/private-assistant/README.md)
 
-![Digrama parte 1](/imagenes/arquitectura.png)
-
-## Step 2:
+## Step 3: WhatsApp Configuration
 
 Edit WhatsApp configuration values in Facebook Developer in AWS Secrets Manager.
 
 ![Digrama parte 1](/imagenes/secret.png)
 
-## Step 3:
+## Step 4: Webhook Configuration
 
 Configure Webhook in the Facebook developer application
 
