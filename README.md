@@ -92,6 +92,8 @@ cdk synth
 cdk deploy
 ```
 
+![Deployment Time](/imagenes/deployment_time.jpg)
+
 ## Step 2: APP Set Up
 
 In [private_assistant_stack.py](/private-assistant/private_assistant/private_assistant_stack.py) edit this line with the whatsapp Facebook Developer app number: 
