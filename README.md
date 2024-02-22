@@ -68,11 +68,39 @@ def start_job_transciptor (jobName,s3Path_in,OutputKey,codec):
             )
 ```
             
-✅ Notice that the IdentifyLanguage parameter is configured to True. Amazon Transcribe can determine the primary language in the audio.
+> ✅ Notice that the IdentifyLanguage parameter is configured to True. Amazon Transcribe can determine the primary language in the audio.
   
 ![Digrama parte 1](/imagenes/2_2_step.jpg)
 
 2. The [transcriber_done](/private-assistant/lambdas/code/transcriber_done/lambda_function.py) Lambda Function is triggered once the Transcribe Job is complete. It extracts the transcript from the Output S3 bucket and sends it to [whatsapp_out](/private-assistant/lambdas/code/transcriber_done/lambda_function.py) Lambda Function to respond to WhatsApp.
+
+> ✅ You have the option to uncomment the code in the [transcriber_done](/private-assistant/lambdas/code/transcriber_done/lambda_function.py) Lambda Function and send the voice note transcription to [langchain_agent_text](/private-assistant/lambdas/code/langchain_agent_text/lambda_function.py) Lambda Function. 
+
+```Python
+try:       
+    response_3 = lambda_client.invoke(
+        FunctionName = LAMBDA_AGENT_TEXT,
+        InvocationType = 'Event' ,#'RequestResponse', 
+        Payload = json.dumps({
+            'whats_message': text,
+            'whats_token': whats_token,
+            'phone': phone,
+            'phone_id': phone_id,
+            'messages_id': messages_id
+
+        })
+    )
+
+    print(f'\nRespuesta:{response_3}')
+
+    return response_3
+    
+except ClientError as e:
+    err = e.response
+    error = err
+    print(err.get("Error", {}).get("Code"))
+    return f"Un error invocando {LAMBDA_AGENT_TEXT}
+```
 
 ### 3- LLM Processing:
 
@@ -163,9 +191,11 @@ if diferencia > 240:  #session time in seg
 
 ### Step 3: WhatsApp Configuration
 
-Edit WhatsApp configuration values in Facebook Developer in AWS Secrets Manager.
+Edit WhatsApp configuration values in Facebook Developer in [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) [console](https://console.aws.amazon.com/secretsmanager/).
 
 ![Digrama parte 1](/imagenes/secret.png)
+
+> ✅ The verification token is any value, but it must be the same in step 3 and 4.
 
 ### Step 4: Webhook Configuration
 
