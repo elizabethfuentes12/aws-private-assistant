@@ -10,8 +10,6 @@ import boto3
 from botocore.exceptions import ClientError
 import time
 
-lambda_client = boto3.client('lambda')
-
 from utils import ( get_config,build_response,validate_healthcheck)
 
 table_name_active_connections = os.environ.get('whatsapp_MetaData') 
