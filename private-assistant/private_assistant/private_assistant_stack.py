@@ -29,7 +29,9 @@ class PrivateAssistantStack(Stack):
         AudioKeyName = "audio-from-whatsapp"
         TextBucketName = "text-to-whatsapp"
         model_id = "anthropic.claude-instant-v1"
-        DISPLAY_PHONE_NUMBER = 'YOU-NUMBER'
+        # DISPLAY_PHONE_NUMBER = 'YOU-NUMBER' 15550968671
+
+        DISPLAY_PHONE_NUMBER = '15550968671' 
 
         #Whatsapp Secrets Values
         secrets = secretsmanager.Secret(self, "Secrets", secret_object_value = {
@@ -41,7 +43,7 @@ class PrivateAssistantStack(Stack):
         
         Tbl = Tables(self, 'Tbl')
 
-        Tbl.whatsapp_MetaData_follow.add_global_secondary_index(index_name = 'jobnameindex', 
+        Tbl.whatsapp_MetaData.add_global_secondary_index(index_name = 'jobnameindex', 
                                                             partition_key = ddb.Attribute(name="jobName",type=ddb.AttributeType.STRING), 
                                                             projection_type=ddb.ProjectionType.KEYS_ONLY)
 
@@ -66,8 +68,8 @@ class PrivateAssistantStack(Stack):
 
         Fn.whatsapp_in.add_environment(key='whatsapp_MetaData', value=Tbl.whatsapp_MetaData.table_name)
 
-        Fn.whatsapp_in.add_environment(key='whatsapp_MetaData_follow', value=Tbl.whatsapp_MetaData_follow.table_name)
-        Tbl.whatsapp_MetaData_follow.grant_full_access(Fn.whatsapp_in)
+        #Fn.whatsapp_in.add_environment(key='whatsapp_MetaData_follow', value=Tbl.whatsapp_MetaData_follow.table_name)
+        #Tbl.whatsapp_MetaData_follow.grant_full_access(Fn.whatsapp_in)
         
         Fn.process_stream.add_environment( key='ENV_LAMBDA_AGENT_TEXT', value=Fn.langchain_agent_text.function_name )
         Fn.process_stream.add_environment( key='JOB_TRANSCRIPTOR_LAMBDA', value=Fn.audio_job_transcriptor.function_name )
@@ -92,16 +94,16 @@ class PrivateAssistantStack(Stack):
 
         Fn.audio_job_transcriptor.add_to_role_policy(iam.PolicyStatement( actions=["transcribe:*"], resources=['*']))
         Fn.audio_job_transcriptor.add_environment(key='BucketName', value=s3_deploy.bucket.bucket_name)
-        Fn.audio_job_transcriptor.add_environment(key='whatsapp_MetaData', value=Tbl.whatsapp_MetaData_follow.table_name)
+        Fn.audio_job_transcriptor.add_environment(key='whatsapp_MetaData', value=Tbl.whatsapp_MetaData.table_name)
         Fn.audio_job_transcriptor.add_environment(key='AudioKeyName', value=AudioKeyName)
         Fn.audio_job_transcriptor.add_environment(key='TextBucketName', value=TextBucketName)
         Fn.audio_job_transcriptor.grant_invoke(Fn.process_stream)
-        Fn.audio_job_transcriptor.add_to_role_policy(iam.PolicyStatement( actions=["dynamodb:*"], resources=[f"{Tbl.whatsapp_MetaData_follow.table_arn}",f"{Tbl.whatsapp_MetaData_follow.table_arn}/*"]))
+        Fn.audio_job_transcriptor.add_to_role_policy(iam.PolicyStatement( actions=["dynamodb:*"], resources=[f"{Tbl.whatsapp_MetaData.table_arn}",f"{Tbl.whatsapp_MetaData.table_arn}/*"]))
         Fn.audio_job_transcriptor.add_environment(key='ENV_INDEX_NAME', value="jobnameindex")
         Fn.audio_job_transcriptor.add_environment(key='ENV_KEY_NAME', value="messages_id")  
 
         s3_deploy.bucket.grant_read_write(Fn.audio_job_transcriptor) 
-        Tbl.whatsapp_MetaData_follow.grant_full_access(Fn.audio_job_transcriptor) 
+        Tbl.whatsapp_MetaData.grant_full_access(Fn.audio_job_transcriptor) 
 
         # Amazon Lambda Function audio_job_transcriptor done - Config
 
@@ -112,29 +114,26 @@ class PrivateAssistantStack(Stack):
                                               s3.NotificationKeyFilter(prefix=TextBucketName+"/"))
         
         Fn.transcriber_done.add_environment( key='WHATSAPP_OUT', value=Fn.whatsapp_out.function_name )
-        Fn.transcriber_done.add_to_role_policy(iam.PolicyStatement( actions=["dynamodb:*"], resources=[f"{Tbl.whatsapp_MetaData_follow.table_arn}",f"{Tbl.whatsapp_MetaData_follow.table_arn}/*"]))
+        Fn.transcriber_done.add_to_role_policy(iam.PolicyStatement( actions=["dynamodb:*"], resources=[f"{Tbl.whatsapp_MetaData.table_arn}",f"{Tbl.whatsapp_MetaData.table_arn}/*"]))
         Fn.transcriber_done.add_environment(key='ENV_INDEX_NAME', value="jobnameindex")
         Fn.transcriber_done.add_environment(key='ENV_KEY_NAME', value="messages_id")        
 
         Fn.whatsapp_out.grant_invoke(Fn.transcriber_done)
 
-        Tbl.whatsapp_MetaData_follow.grant_full_access(Fn.transcriber_done)
-        Fn.transcriber_done.add_environment(key='whatsapp_MetaData', value=Tbl.whatsapp_MetaData_follow.table_name)
+        Tbl.whatsapp_MetaData.grant_full_access(Fn.transcriber_done)
+        Fn.transcriber_done.add_environment(key='whatsapp_MetaData', value=Tbl.whatsapp_MetaData.table_name)
 
         Fn.langchain_agent_text.grant_invoke(Fn.transcriber_done)
 
         Fn.transcriber_done.add_environment( key='ENV_LAMBDA_AGENT_TEXT', value=Fn.langchain_agent_text.function_name)
-
-
-
 
         # langchain_agent_text
 
         Tbl.session_table_history.grant_full_access(Fn.langchain_agent_text)
         Fn.langchain_agent_text.add_environment(key='session_table_history', value=Tbl.session_table_history.table_name)
 
-        Tbl.whatsapp_MetaData_follow.grant_full_access(Fn.langchain_agent_text)
-        Fn.langchain_agent_text.add_environment(key='whatsapp_MetaData', value=Tbl.whatsapp_MetaData_follow.table_name)
+        Tbl.whatsapp_MetaData.grant_full_access(Fn.langchain_agent_text)
+        Fn.langchain_agent_text.add_environment(key='whatsapp_MetaData', value=Tbl.whatsapp_MetaData.table_name)
 
         Tbl.user_sesion_metadata.grant_full_access(Fn.langchain_agent_text)
         Fn.langchain_agent_text.add_environment(key='user_sesion_metadata', value=Tbl.user_sesion_metadata.table_name)
@@ -145,10 +144,6 @@ class PrivateAssistantStack(Stack):
         
         Fn.langchain_agent_text.grant_invoke(Fn.process_stream)
         Fn.langchain_agent_text.add_to_role_policy(iam.PolicyStatement( actions=["bedrock:*"], resources=['*']))
-
-    #Crear el bus de evento
-
-    
 
         
 

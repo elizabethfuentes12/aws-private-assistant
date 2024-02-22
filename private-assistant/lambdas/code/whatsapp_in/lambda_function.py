@@ -13,7 +13,7 @@ import time
 from utils import ( get_config,build_response,validate_healthcheck)
 
 table_name_active_connections = os.environ.get('whatsapp_MetaData') 
-whatsapp_MetaData_follow = os.environ.get('whatsapp_MetaData_follow')
+#whatsapp_MetaData_follow = os.environ.get('whatsapp_MetaData_follow')
 key_name_active_connections = "messages_id"
 
 dynamodb_resource=boto3.resource('dynamodb')
@@ -62,11 +62,11 @@ def lambda_handler(event, context):
                 entry["whats_token"] = WHATS_TOKEN
                 print("key_name_active_connections",entry[key_name_active_connections])
                 batch_put_items(dynamodb_resource, table_name_active_connections, [entry])
-                batch_put_items(dynamodb_resource, whatsapp_MetaData_follow, [entry])
+                #batch_put_items(dynamodb_resource, whatsapp_MetaData_follow, [entry])
             except:
                 print("No messages")
         else: 
             print("No valid diplay phone number: ", display_phone_number)
             
                 
-    return True
+    return build_response(200,"OK")

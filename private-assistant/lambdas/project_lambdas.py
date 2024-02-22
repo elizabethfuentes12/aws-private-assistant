@@ -58,14 +58,14 @@ class Lambdas(Construct):
     
         self.process_stream = aws_lambda.Function(
             self, "process_stream", 
-            description ="Read the text from transcriber job" ,
+            description ="Process Stream Lambda" ,
             handler="lambda_function.lambda_handler",
             code=aws_lambda.Code.from_asset("./lambdas/code/process_stream"),
             layers= [Lay.bs4_requests, Lay.common],**COMMON_LAMBDA_CONF)
         
         self.langchain_agent_text = aws_lambda.Function(
             self, "langChain_agent_text", 
-            description ="Airline Agent with LangChain and Amacon Bedrock" ,
+            description ="Agent with LangChain and Amazon Bedrock" ,
             handler="lambda_function.lambda_handler",
             code=aws_lambda.Code.from_asset("./lambdas/code/langchain_agent_text"),
             layers= [Lay.bedrock,Lay.bs4_requests,Lay.common,Lay.langchain],

@@ -6,9 +6,10 @@
 
 ---
 
-Private Assistant is an application integrated with WhatsApp that allows you to chat with an LLM hosted on Amazon Bedrock and you can also send it voice notes and it will return the transcription of it. 
+This app is integrated to WhatsApp, enabling you to chat with an LLM on Amazon Bedrock. Send voice notes and receive transcriptions. With just a small tweak in the code, you can send the transcription to the model too.
 
-All data you send to this application will be hosted in your AWS account and will not be shared with anyone or used to retrain models... But the security of data with WhatsApp is not guaranteed, so it is not recommended share private information.
+Your data will be securely stored in your AWS account and will not be shared or used for model training. It is not recommended to share private information because the security of data with WhatsApp is not guaranteed.
+
 
 ![Digrama parte 1](/imagenes/gif_01.gif)
 
@@ -68,7 +69,7 @@ def start_job_transciptor (jobName,s3Path_in,OutputKey,codec):
             )
 ```
             
-> ✅ Notice that the IdentifyLanguage parameter is configured to True. Amazon Transcribe can determine the primary language in the audio.
+> 💡  Notice that the IdentifyLanguage parameter is configured to True. Amazon Transcribe can determine the primary language in the audio.
   
 ![Digrama parte 1](/imagenes/2_2_step.jpg)
 
@@ -104,6 +105,31 @@ except ClientError as e:
 
 ### 3- LLM Processing:
 
+![Digrama parte 1](/imagenes/3_step.jpg)
+
+The agent receives the text and performs the following:
+1. Queries the Amazon DynamoDB table called `user_metadata` to see if the `session` has expired. If it is active, it recovers the `SessionID`, necessary for the next step, if it expires it creates a new session timer.
+2. Queries the Amazon DynamoDB table called session Table to see if there is any previous conversation history.
+3. Consult the LLM through Amazon Bedrock using the following prompt:
+
+```
+The following is a friendly conversation between a human and an AI. 
+    The AI is talkative and provides lots of specific details from its context. 
+    If the AI does not know the answer to a question, it truthfully says it does not know.
+    Always reply in the original user language.
+
+    Current conversation:
+    {history}
+
+    Human:{input}
+
+    Assistant:
+```
+4. Send the response to WhatsApp through `whatsapp_out` the Lambda Function.
+
+> 💡 The phrase **"Always reply in the original user language"** ensures that it always responds in the original language and the multilingual capacity is provided by [Anthropic Claude](https://aws.amazon.com/bedrock/claude/), which is the model used in this application.
+
+
 ## Let's build!
 
 ### Step 0: Activate WhatsApp account Facebook Developers
@@ -115,14 +141,7 @@ except ClientError as e:
 3- [Get started with the Messenger API for Instagram](https://www.youtube.com/watch?v=Pi2KxYeGMXo&list=PLX_K_BlBdZKi4GOFmJ9_67og7pMzm2vXH&index=5&t=376s&pp=gAQBiAQB)
 
 
-### Step 1: Deploy architecture with CDK.
-
-- Configure the [AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
-
-- Deploy architecture with CDK [Follow steps:](/private-assistant/README.md)
-
-![Digrama parte 1](/imagenes/arquitectura.png)
-
+### Step 1:  APP Set Up 
 
 ✅ **Clone the repo**
 
@@ -135,6 +154,30 @@ git clone https://github.com/elizabethfuentes12/aws-private-assistant
 ```
 cd private-assistant
 ```
+
+### Step 2: Deploy architecture with CDK.
+
+In [private_assistant_stack.py](/private-assistant/private_assistant/private_assistant_stack.py) edit this line with the whatsapp Facebook Developer app number: 
+
+`
+DISPLAY_PHONE_NUMBER = 'YOU-NUMBER'
+`
+
+This agent manages conversation memory, and you must set the session time [here](/private-assistant/lambdas/code/langchain_agent_text/lambda_function.py) in this line:
+
+`
+if diferencia > 240:  #session time in seg
+`
+
+> **Tip:** [Kenton Blacutt](https://github.com/KBB99), an AWS Associate Cloud App Developer, collaborated with Langchain, creating the [Amazon Dynamodb based memory class](https://github.com/langchain-ai/langchain/pull/1058) that allows us to store the history of a langchain agent in an [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html?sc_channel=el&sc_campaign=genaiwave&sc_content=working-with-your-live-data-using-langchain&sc_geo=mult&sc_country=mult&sc_outcome=acq).
+
+
+
+- Configure the [AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+
+- Deploy architecture with CDK [Follow steps:](/private-assistant/README.md)
+
+![Digrama parte 1](/imagenes/arquitectura.png)
 
 ✅ **Create The Virtual Environment**: by following the steps in the [README](/private-assistant/README.md)
 
@@ -171,39 +214,32 @@ cdk deploy
 
 ![Deployment Time](/imagenes/deployment_time.jpg)
 
-### Step 2: APP Set Up
-
-In [private_assistant_stack.py](/private-assistant/private_assistant/private_assistant_stack.py) edit this line with the whatsapp Facebook Developer app number: 
-
-`
-DISPLAY_PHONE_NUMBER = 'YOU-NUMBER'
-`
-
-This agent manages conversation memory, and you must set the session time [here](/private-assistant/lambdas/code/langchain_agent_text/lambda_function.py) in this line:
-
-`
-if diferencia > 240:  #session time in seg
-`
-
-> **Tip:** [Kenton Blacutt](https://github.com/KBB99), an AWS Associate Cloud App Developer, collaborated with Langchain, creating the [Amazon Dynamodb based memory class](https://github.com/langchain-ai/langchain/pull/1058) that allows us to store the history of a langchain agent in an [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html?sc_channel=el&sc_campaign=genaiwave&sc_content=working-with-your-live-data-using-langchain&sc_geo=mult&sc_country=mult&sc_outcome=acq).
-
-
-
 ### Step 3: WhatsApp Configuration
 
 Edit WhatsApp configuration values in Facebook Developer in [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) [console](https://console.aws.amazon.com/secretsmanager/).
 
 ![Digrama parte 1](/imagenes/secret.png)
 
-> ✅ The verification token is any value, but it must be the same in step 3 and 4.
+> ✅ The **verification token** is any value, but it must be the same in step 3 and 4.
 
 ### Step 4: Webhook Configuration
 
-Configure Webhook in the Facebook developer application
+1. Go to [Amazon API Gateway Console](https://console.aws.amazon.com/apigateway)
+2. Click on `myapi`.
+3. Go to **Stages** -> **prod** -> **/cloudapi** -> **GET**, and copy **Invoke URL**. 
+
+![Invoke Url](/imagenes/invoke_url.jpg)
+
+4. Configure Webhook in the Facebook developer application. 
+    - Set **Invoke URL**.
+    - Set **verification token**.
+
 
 ![Digrama parte 1](/imagenes/webhook.png)
 
 ----
+
+## 🚀 Keep testing the app, play with the prompt [langchain_agent_text](/private-assistant/lambdas/code/langchain_agent_text/lambda_function.py) Amazon Lambda function and adjust it to your need. 
 
 ## 🚨 Did you like this blog? 👩🏻‍💻 Do you have comments?🎤 tell me everything[here](https://www.pulse.aws/survey/6V3IYE9H)
 

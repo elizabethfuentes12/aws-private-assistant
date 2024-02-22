@@ -43,7 +43,7 @@ def db_update_item(value,jobName,now):
                     ':item1': jobName,
                     ':item2': now,
                 },
-                ReturnValues="ALL_NEW")
+                ReturnValues="UPDATED_NEW")
         print (response)
     except Exception as e:
         print (e)

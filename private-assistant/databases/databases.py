@@ -21,11 +21,11 @@ class Tables(Construct):
             stream=ddb.StreamViewType.NEW_AND_OLD_IMAGES
         )
 
-        self.whatsapp_MetaData_follow = ddb.Table(
-            self, "whatsapp-MetaData-follow", 
-            partition_key=ddb.Attribute(name="messages_id", type=ddb.AttributeType.STRING),
-            stream=ddb.StreamViewType.NEW_AND_OLD_IMAGES
-        )
+        #self.whatsapp_MetaData_follow = ddb.Table(
+        #    self, "whatsapp-MetaData-follow", 
+        #    partition_key=ddb.Attribute(name="messages_id", type=ddb.AttributeType.STRING),
+        #    stream=ddb.StreamViewType.NEW_AND_OLD_IMAGES
+        #)
                                       
         self.session_table_history = ddb.Table(
             self, "sessionTable", 

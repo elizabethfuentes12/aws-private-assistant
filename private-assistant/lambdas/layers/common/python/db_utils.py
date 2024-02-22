@@ -6,7 +6,7 @@ from boto3.dynamodb.conditions import Key
 def query_gd(key,table,keyvalue,Index_Name):
     resp = table.query(
     # Add the name of the index you want to use in your query.
-    IndexName="jobnameindex",
+    IndexName=Index_Name,
     KeyConditionExpression=Key(key).eq(keyvalue),
     )
     print(resp)
