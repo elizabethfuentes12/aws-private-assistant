@@ -51,7 +51,7 @@ Your data will be securely stored in your AWS account and will not be shared or 
 
 ![Digrama parte 1](/imagenes/2_1_step.jpg)
 
-1. The [audio_job_transcriptor](/private-assistant/lambdas/code/audio_job_transcriptor/lambda_function.py) Lambda Function is triggered. This Lambda Function downloads the WhatsApp audio from the link in the message in an [Amazon S3](https://aws.amazon.com/es/s3/) bucket, using authentication, then converts the audio to text using the Amazon Transcribe [start_transcription_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/start_transcription_job.html) API, which leaves the transcript file in an Output Amazon S3 bucket.
+1. The [audio_job_transcriptor](/private-assistant/lambdas/code/audio_job_transcriptor/lambda_function.py) Lambda Function is triggered. This Lambda Function downloads the WhatsApp audio from the link in the message in an [Amazon S3](https://aws.amazon.com/es/s3/) bucket, using Whatsapp Token authentication, then converts the audio to text using the Amazon Transcribe [start_transcription_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/start_transcription_job.html) API, which leaves the transcript file in an Output Amazon S3 bucket.
 
 Function that invokes audio_job_transcriptor looks like this:
 
@@ -177,7 +177,7 @@ if diferencia > 240:  #session time in seg
 
 - Deploy architecture with CDK [Follow steps:](/private-assistant/README.md)
 
-![Digrama parte 1](/imagenes/arquitectura.png)
+![Digrama parte 1](/imagenes/arquitectura.jpg)
 
 ✅ **Create The Virtual Environment**: by following the steps in the [README](/private-assistant/README.md)
 
