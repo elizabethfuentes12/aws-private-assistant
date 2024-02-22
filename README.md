@@ -51,7 +51,7 @@ Your data will be securely stored in your AWS account and will not be shared or 
 
 ![Digrama parte 1](/imagenes/2_1_step.jpg)
 
-1. The [audio_job_transcriptor](/private-assistant/lambdas/code/audio_job_transcriptor/lambda_function.py) Lambda Function is triggered. This Lambda Function downloads the WhatsApp audio from the link in the message in an [Amazon S3](https://aws.amazon.com/es/s3/) bucket, using authentication, then converts the audio to text using the Amazon Transcribe start_transcription_job API, which leaves the transcript file in an Output Amazon S3 bucket.
+1. The [audio_job_transcriptor](/private-assistant/lambdas/code/audio_job_transcriptor/lambda_function.py) Lambda Function is triggered. This Lambda Function downloads the WhatsApp audio from the link in the message in an [Amazon S3](https://aws.amazon.com/es/s3/) bucket, using authentication, then converts the audio to text using the Amazon Transcribe [start_transcription_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/start_transcription_job.html) API, which leaves the transcript file in an Output Amazon S3 bucket.
 
 Function that invokes audio_job_transcriptor looks like this:
 
@@ -73,7 +73,7 @@ def start_job_transciptor (jobName,s3Path_in,OutputKey,codec):
   
 ![Digrama parte 1](/imagenes/2_2_step.jpg)
 
-2. The [transcriber_done](/private-assistant/lambdas/code/transcriber_done/lambda_function.py) Lambda Function is triggered once the Transcribe Job is complete. It extracts the transcript from the Output S3 bucket and sends it to [whatsapp_out](/private-assistant/lambdas/code/transcriber_done/lambda_function.py) Lambda Function to respond to WhatsApp.
+2. The [transcriber_done](/private-assistant/lambdas/code/transcriber_done/lambda_function.py) Lambda Function is triggered with an [Amazon S3 Event Notification put item](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html) once the Transcribe Job is complete. It extracts the transcript from the Output S3 bucket and sends it to [whatsapp_out](/private-assistant/lambdas/code/transcriber_done/lambda_function.py) Lambda Function to respond to WhatsApp.
 
 > ✅ You have the option to uncomment the code in the [transcriber_done](/private-assistant/lambdas/code/transcriber_done/lambda_function.py) Lambda Function and send the voice note transcription to [langchain_agent_text](/private-assistant/lambdas/code/langchain_agent_text/lambda_function.py) Lambda Function. 
 
