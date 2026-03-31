@@ -1,3 +1,13 @@
+# ⚠️ This repository is deprecated
+
+> **New version available:** This project has been replaced by a new, improved version. Please use the new repository:
+>
+> **[whatsapp-ai-agent-sample-for-aws-agentcore](https://github.com/elizabethfuentes12/whatsapp-ai-agent-sample-for-aws-agentcore)**
+
+This repository is no longer maintained. All future updates, bug fixes, and new features will be published in the new repository.
+
+---
+
 # Open Source Private Assistant on AWS
 
 
